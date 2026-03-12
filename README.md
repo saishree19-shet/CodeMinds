@@ -1,6 +1,18 @@
-# 🧠 CodeMinds - See your code through different minds
+# 🧠 CodeMinds: One Code. Five Minds. Total Clarity.
 
-CodeMinds is an AI-powered code analysis platform built for **OpenSprint**. It provides multiple professional and humorous perspectives on your code snippets and error logs.
+CodeMinds is an AI-powered code analysis platform built for **OpenSprint 2026**. It transforms the lonely act of debugging into a high-performance brainstorming session by "mirroring" your code through five distinct artificial minds.
+
+## 💡 The Idea Behind CodeMinds
+
+Most debugging tools are clinical and boring. CodeMinds changes the game by giving you a 360-degree view of your logic through professional, educational, and even humorous perspectives:
+
+1.  **The Translator (ELI5)**: Breaks down complex blocks into simple analogies.
+2.  **The Echo (Rubber Duck)**: Walks you through your own logic in the first person to spot the "Aha!" moment.
+3.  **The Architect (Senior Dev)**: Provides a technical review focusing on scalability and best practices.
+4.  **The Roast (Internet Persona)**: Lightens the mood with a sarcastic, meme-filled take on your mistakes.
+5.  **The Specialist (AI Fix)**: Provides a refined code fix ready for copy-pasting.
+
+---
 
 ## 🚀 Quick Start (Local Setup)
 
