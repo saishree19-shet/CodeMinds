@@ -14,7 +14,9 @@ function App() {
     setError(null);
 
     try {
-      const apiUrl = '/api';
+      const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+        ? 'http://127.0.0.1:5000' 
+        : '/api';
       const response = await fetch(`${apiUrl}/analyze`, {
         method: 'POST',
         headers: {
