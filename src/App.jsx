@@ -14,7 +14,8 @@ function App() {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:5000/analyze', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000';
+      const response = await fetch(`${apiUrl}/analyze`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +33,13 @@ function App() {
 
     } catch (err) {
       console.error(err);
-      setError(err.message || "An error occurred while analyzing the code. Let's pretend this is part of the meme perspective.");
+      let userMessage = err.message;
+      
+      if (err.name === 'TypeError' && err.message === 'Failed to fetch') {
+        userMessage = "Cannot connect to the AI backend. Please ensure the server is running (node server.js)";
+      }
+      
+      setError(userMessage || "An error occurred while analyzing the code.");
     } finally {
       setIsLoading(false);
     }

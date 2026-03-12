@@ -1,16 +1,54 @@
-# React + Vite
+# 🧠 CodeMinds - See your code through different minds
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CodeMinds is an AI-powered code analysis platform built for **OpenSprint**. It provides multiple professional and humorous perspectives on your code snippets and error logs.
 
-Currently, two official plugins are available:
+## 🚀 Quick Start (Local Setup)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run the project locally, follow these steps:
 
-## React Compiler
+### 1. Clone the repository
+```bash
+git clone https://github.com/saishree19-shet/CodeMinds
+cd CodeMinds
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+### 3. Setup Environment Variables
+Create a `.env` file in the root directory and add your API keys:
+```env
+REACT_APP_GEMINI_API_KEY="your_gemini_api_key"
+GROQ_API_KEY="your_groq_api_key"
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 4. Run the Project
+You need to run **both** the frontend and the backend server.
+
+**Start the Backend Server (Terminal 1):**
+```bash
+node server.js
+```
+
+**Start the Frontend (Terminal 2):**
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+## 🛠️ Tech Stack
+- **Frontend**: React, Vite, Tailwind CSS, Framer Motion
+- **Backend**: Node.js, Express
+- **AI Models**: Google Gemini Pro, Groq (Llama 3) - with automatic fallback retry logic!
+
+## 🧪 Testing
+Use the provided `test-api.js` to verify the backend independently:
+```bash
+node test-api.js
+```
+
+---
+Built with ❤️ for **OpenSprint 2026**

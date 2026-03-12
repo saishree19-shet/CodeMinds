@@ -17,6 +17,25 @@ const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 // Simple In-Memory Cache
 const cache = new Map();
 
+// Robust JSON Extraction Helper
+function extractJson(text) {
+    try {
+        // Try direct parse first
+        return JSON.parse(text);
+    } catch (e) {
+        // Try to find JSON block in markdown or raw text
+        const jsonMatch = text.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+            try {
+                return JSON.parse(jsonMatch[0]);
+            } catch (innerError) {
+                console.error("Failed to parse extracted JSON block:", innerError.message);
+            }
+        }
+        throw new Error("No valid JSON found in model response");
+    }
+}
+
 async function generateWithGemini(modelName, prompt, retries = 2) {
     try {
         const model = genAI.getGenerativeModel({ model: modelName });
@@ -100,7 +119,8 @@ RETURN RAW JSON MATCHING THIS STRUCTURE:
                 if (!GEMINI_API_KEY) break;
                 console.log(`Trying Gemini: ${modelName}`);
                 const text = await generateWithGemini(modelName, prompt);
-                finalData = JSON.parse(text.replace(/```json/gi, '').replace(/```/gi, '').trim());
+                console.log(`Raw Response from ${modelName}:`, text);
+                finalData = extractJson(text);
                 break;
             } catch (e) {
                 console.warn(`Gemini (${modelName}) failed:`, e.message);
@@ -112,7 +132,8 @@ RETURN RAW JSON MATCHING THIS STRUCTURE:
             try {
                 console.log("Gemini failed or skipped. Trying Groq...");
                 const text = await generateWithGroq(prompt);
-                finalData = JSON.parse(text);
+                console.log("Raw Response from Groq:", text);
+                finalData = extractJson(text);
                 console.log("Groq Success!");
             } catch (e) {
                 console.error("Groq also failed:", e.message);
