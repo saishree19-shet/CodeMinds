@@ -121,15 +121,21 @@ RETURN RAW JSON MATCHING THIS STRUCTURE:
             return res.json(finalData);
         }
 
+        // 3. Last Resort: Multi-Layer Mock Fallback with Diagnostics
+        const statusDetails = [];
+        if (!GEMINI_API_KEY) statusDetails.push("Gemini Key Missing");
+        if (!GROQ_API_KEY) statusDetails.push("Groq Key Missing");
+
         res.json({
           "Explain Like I'm 5": "The robot brain is taking a nap. Try again in a minute!",
-          "Rubber Duck": "I'm looking at the wires and... wait, I think I tripped over one.",
-          "Senior Dev Review": "Service unavailable. All upstream providers failed.",
+          "Rubber Duck": `I'm looking at the wires and... wait, I think I see the problem: ${statusDetails.join(' & ') || 'API models failed to respond'}.`,
+          "Senior Dev Review": "Service unavailable. Multiple upstream providers failed. Please check your Vercel Environment Variables.",
           "Internet Persona": "Internal Server Error: This is fine. 🔥🐶🔥",
-          "AI Fix Proposal": "// Check your API keys in Vercel settings",
+          "AI Fix Proposal": "// Check your REACT_APP_GEMINI_API_KEY and GROQ_API_KEY in Vercel settings",
           "complexityScore": "N/A"
         });
     } catch (err) {
+        console.error("Analysis endpoint crashed:", err.message);
         res.status(500).json({ error: "Internal server error" });
     }
 });
