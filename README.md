@@ -12,6 +12,13 @@ Most debugging tools are clinical and boring. CodeMinds changes the game by givi
 4.  **The Roast (Internet Persona)**: Lightens the mood with a sarcastic, meme-filled take on your mistakes.
 5.  **The Specialist (AI Fix)**: Provides a refined code fix ready for copy-pasting.
 
+## ✨ Recent Updates (OpenSprint Round 2)
+
+- **Dark Mode Toggle**: Integrated a sleek GitHub-inspired dark beta theme.
+- **Interactive Responses**: AI feedback now streams with a smooth typing animation.
+- **Copy Buttons**: One-click copying on all result cards.
+- **UX Polish**: Added toast notifications, a live character counter with a clear button, and a Ctrl+Enter submission shortcut!
+
 ---
 
 ## 🚀 Quick Start (Local Setup)
