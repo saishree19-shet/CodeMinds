@@ -25,7 +25,7 @@ export default function Loader() {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 100 }}
-                    className="w-48 h-48 sm:w-64 sm:h-64 bg-white rounded-full flex justify-center items-center shadow-[0_0_50px_rgba(244,63,94,0.15)] relative z-10"
+                    className="w-48 h-48 sm:w-64 sm:h-64 bg-white dark:bg-[#161b22] rounded-full flex justify-center items-center shadow-[0_0_50px_rgba(244,63,94,0.15)] dark:shadow-[0_0_50px_rgba(255,255,255,0.05)] border border-transparent dark:border-[#30363d] relative z-10 transition-colors"
                 >
                     <motion.div
                         animate={{ y: [-10, 10, -10] }}
@@ -42,22 +42,22 @@ export default function Loader() {
             </div>
 
             <div className="text-center w-full max-w-sm">
-                <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-slate-900 mb-3 tracking-tight">
+                <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-slate-900 dark:text-[#c9d1d9] mb-3 tracking-tight transition-colors">
                     Consulting the duck...
                 </h2>
-                <p className="text-brand-pink font-medium text-lg mb-10">
+                <p className="text-brand-pink dark:text-[#8b949e] font-medium text-lg mb-10 transition-colors">
                     Brewing your perspectives
                 </p>
 
                 {/* Progress Bar */}
                 <div className="w-full bg-transparent">
                     <div className="flex justify-between items-end mb-2 px-1">
-                        <span className="text-sm font-bold text-slate-500 tracking-wider">ANALYZING CODE</span>
-                        <span className="text-sm font-bold text-brand-pink">{displayProgress}%</span>
+                        <span className="text-sm font-bold text-slate-500 dark:text-[#8b949e] tracking-wider transition-colors">ANALYZING CODE</span>
+                        <span className="text-sm font-bold text-brand-pink dark:text-[#58a6ff] transition-colors">{displayProgress}%</span>
                     </div>
-                    <div className="w-full h-3 bg-brand-pink/15 rounded-full overflow-hidden">
+                    <div className="w-full h-3 bg-brand-pink/15 dark:bg-[#30363d] rounded-full overflow-hidden transition-colors">
                         <motion.div
-                            className="h-full bg-brand-pink rounded-full"
+                            className="h-full bg-brand-pink dark:bg-[#2ea043]"
                             initial={{ width: 0 }}
                             animate={{ width: `${displayProgress}%` }}
                             transition={{ type: "spring", stiffness: 50 }}
